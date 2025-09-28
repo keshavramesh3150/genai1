@@ -10,10 +10,8 @@ import spacy
 
 
 def _load_spacy_model(preferred: str = "en_core_web_lg") -> "spacy.language.Language":
-    """
-    Load a spaCy model, preferring the large vectors model.
-    Falls back to medium/small if the large model isn't installed.
-    """
+   
+   # creating options for fallback models, but I've only installed the large model for our purposes
     tried = []
     for name in (preferred, "en_core_web_md", "en_core_web_sm"):
         try:
@@ -114,9 +112,7 @@ class BigramModel:
         vec = self.nlp(self._normalize(word)).vector
         return vec.astype(float).tolist()
 
-    # ----------------------------
-    # Internals
-    # ----------------------------
+
     def _normalize(self, text: str) -> str:
         return text.lower().strip() if self.lowercase else text.strip()
 
