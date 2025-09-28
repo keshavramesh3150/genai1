@@ -9,7 +9,7 @@ A **Dockerfile** is included so anyone can run the app in a clean, reproducible 
 ## Project Layout
 
 ```
-sps_genai/
+root/
 ├─ app/
 │  ├─ main.py            # FastAPI routes: "/", /generate, /embedding
 │  └─ bigram_model.py    # Bigram model + spaCy embedding 
@@ -22,11 +22,11 @@ sps_genai/
 
 ## Running with Docker
 
-After cloning this repo, build and run the image from the sps_genai directory:
+After cloning this repo, build and run the image from the root directory:
 
 ```bash
-docker build -t sps-genai .
-docker run -p 8000:80 sps-genai
+docker build -t <folder_name > .
+docker run -p 8000:80 <folder_name >
 ```
 
 To open on your device:
@@ -41,7 +41,7 @@ To open on your device:
 
 **Requirements:** [uv](https://github.com/astral-sh/uv) (or Python 3.12+)
 
-**NOTE:** Ensure you run this part from the sps_genai directory.
+**NOTE:** Ensure you run this part from the root directory.
 
 ```bash
 # install dependencies into .venv
